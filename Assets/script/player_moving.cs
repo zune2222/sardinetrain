@@ -4,8 +4,9 @@ using UnityEngine;
 
 public class player_moving : MonoBehaviour
 {
-    public float movePower = 1f;
+    public float speed = 1f;
     bool eating = false;
+    private Joystick joystick;
 
     Rigidbody2D rigid;
     Animator animator;
@@ -14,30 +15,13 @@ public class player_moving : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        joystick = GameObject.FindObjectOfType<Joystick>();
         rigid = gameObject.GetComponent<Rigidbody2D>();
         animator = gameObject.GetComponentInChildren<Animator>();
     }
-
     // Update is called once per frame
     void Update()
     {
-
-        if (Input.GetAxisRaw("Horizontal") < 0)
-        {
-            animator.SetInteger ("direction",1);
-        }
-        else if (Input.GetAxisRaw("Horizontal") > 0)
-        {
-            animator.SetInteger("direction", 0);
-        }
-        else if (Input.GetAxisRaw("Vertical") < 0)
-        {
-            animator.SetInteger("direction", 3);
-        }
-        else if (Input.GetAxisRaw("Vertical") > 0)
-        {
-            animator.SetInteger("direction", 2);
-        }
         if (Input.GetButtonDown ("Jump"))
         {
             eating = true;
@@ -45,41 +29,31 @@ public class player_moving : MonoBehaviour
     }
     private void FixedUpdate()
     {
-        Move();
+        if (joystick.Horizontal != 0 || joystick.Vertical != 0)
+        {
+            Move();
+        }
         Eat();
     }
     void Move()
     {
-        Vector3 moveVelocity = Vector3.zero;
-
-        if (Input.GetAxisRaw ("Horizontal") < 0)
-        {
-            moveVelocity = Vector3.left;
-        }
-        else if(Input.GetAxisRaw ("Horizontal") > 0)
-        {
-            moveVelocity = Vector3.right;
-        }
-        else if(Input.GetAxisRaw ("Vertical") < 0)
-        {
-            moveVelocity = Vector3.down;
-        }
-        else if(Input.GetAxisRaw ("Vertical") > 0)
-        {
-            moveVelocity = Vector3.up;
-        }
-
-        transform.position += moveVelocity * movePower * Time.deltaTime;
+        Vector3 upMovement = Vector3.up * speed * Time.deltaTime * joystick.Vertical;
+        Vector3 rightMovement = Vector3.right * speed * Time.deltaTime * joystick.Horizontal;
+        transform.position += upMovement;
+        transform.position += rightMovement;
+        Quaternion quaternion = Quaternion.identity;
+        quaternion.eulerAngles = joystick.angle;
+        transform.rotation = quaternion;
     }
     void Eat()
     {
         if (!eating)
         {
-            animator.SetBool("eating", false);
+            //animator.SetBool("eating", false);
         }
         else
         {
-            animator.SetBool("eating", true);
+            //animator.SetBool("eating", true);
             eating = false;
         }
     }
