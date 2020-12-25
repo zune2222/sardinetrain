@@ -64,9 +64,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\script\Camera_traking.cs" />
+    <Compile Include="Assets\script\Eating_plankton.cs" />
     <Compile Include="Assets\script\Joystick.cs" />
-    <Compile Include="Assets\script\player_moving.cs" />
-    <None Include="Assets\git_test.txt" />
+    <Compile Include="Assets\script\Player_activity.cs" />
+    <Compile Include="Assets\script\Player_info.cs" />
+    <Compile Include="Assets\script\Player_moving.cs" />
+    <Compile Include="Assets\script\Summoner.cs" />
     <Reference Include="UnityEngine">
       <HintPath>C:/Program Files/Unity/Hub/Editor/2019.4.17f1/Editor/Data/Managed/UnityEngine/UnityEngine.dll</HintPath>
     </Reference>

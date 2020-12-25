@@ -4,7 +4,8 @@
 TagManager:
   serializedVersion: 2
   tags:
-  - Joystick
+  - monster
+  - eating_plankton
   layers:
   - Default
   - TransparentFX

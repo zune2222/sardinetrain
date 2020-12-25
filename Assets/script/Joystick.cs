@@ -14,9 +14,6 @@ public class Joystick : MonoBehaviour, IDragHandler, IPointerDownHandler, IPoint
     private Vector2 joystickVector;
     private Vector3 input = Vector3.zero;
     private float degree;
-
-    public float speed = 5;
-    public float rotatespeed = 5f;
     public float Horizontal { get { return input.x; } }
     public float Vertical { get { return input.y; } }
     public Vector3 angle { get { return new Vector3(0, 0, degree); } }
