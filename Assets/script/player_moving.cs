@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Player_moving : MonoBehaviour
+public class player_moving : MonoBehaviour
 {
     private float speed;
     private Joystick joystick;
