@@ -6,6 +6,7 @@ TagManager:
   tags:
   - monster
   - eating_plankton
+  - wall
   layers:
   - Default
   - TransparentFX

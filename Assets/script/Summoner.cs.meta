@@ -3,7 +3,12 @@ guid: f2134b400ca276d4295ad099ce240e50
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - Plankton_prefeb: {fileID: 6634974599582228960, guid: 2437406e5d0d70544ad86cb3726846cf,
+      type: 3}
+  - parent: {instanceID: 0}
+  - player: {instanceID: 0}
+  - Map: {instanceID: 0}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 

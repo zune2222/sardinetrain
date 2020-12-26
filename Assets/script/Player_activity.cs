@@ -15,7 +15,7 @@ public class Player_activity : MonoBehaviour
     {
         
     }
-    private void OnTriggerEnter2D(Collider2D o)
+    private void OnCollisionEnter2D(Collision2D o)
     {
         if (o.gameObject.CompareTag("eating_plankton"))
         {
